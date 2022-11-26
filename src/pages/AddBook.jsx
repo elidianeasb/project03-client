@@ -17,13 +17,17 @@ function AddBook(props) {
     const handleSubmit = async (e) => {
         e.preventDefault(); //prevent to reload the page
         try {
-            console.log({local, date, contact})
-            await axios.post(`${process.env.REACT_APP_API_URL}/books`, {local, date, service:"637f9459337094a7bce8411e", contact}); //FIX THE SERVICE ID!!!!!!!
+            const storedToken = localStorage.getItem('authToken');
+
+            
+            await axios.post(`${process.env.REACT_APP_API_URL}/books`, {local, date, service:"637f9459337094a7bce8411e", contact}, {
+                headers: {Authorization: `Bearer ${storedToken}`} 
+            } ); //FIX THE SERVICE ID!!!!!!!
 
             setLocal("")
             setDate("") 
             setContact("") 
-           setService("") 
+            setService("") 
             
             props.refreshBooks(); 
 

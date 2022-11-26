@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../contexts/auth.context';
 
 function Navbar() {
-    const { loggedIn, user, logout } = useContext(AuthContext);
+    const { loggedIn, user, logout, profile } = useContext(AuthContext);
 
     return (
         <nav>
@@ -14,21 +14,28 @@ function Navbar() {
             {/* If user is loggdIn shows the projects */}
             {loggedIn && (
                 <>
-                    <Link to="/projects"> 
-                        <button>Projects</button>
+                    <Link to="/booking"> 
+                        <button>Book</button>
                     </Link>
+                    <Link to={`/account`}> 
+                        <button>Account</button>
+                    </Link>                    
                     <button onClick={logout}>Logout</button>
+
                     <h3>Hey there {user.email}</h3>
                 </>
             )}
 
             {!loggedIn && (
                 <>
-                    <Link to="/signup">
-                        <button>Signup</button>
+                    <Link to="/giftcard"> 
+                        <button>Gift</button>
+                    </Link>
+                    <Link to="/instructions">
+                        <button>Get Started</button>
                     </Link>
                     <Link to="/login">
-                        <button>Login</button>
+                        <button>Sign In</button>
                     </Link>
                 </>
             )}

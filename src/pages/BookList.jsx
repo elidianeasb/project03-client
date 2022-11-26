@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from 'react-router-dom';
-import AddBook from "./AddBook";
 
 function BookList() {
 
@@ -30,14 +29,11 @@ function BookList() {
     
 return (
     <div>
-      <AddBook refreshBooks={getAllBooks}/>
       <h1>List of books:</h1>
-        {books.map((book) => {
+        {books.user.map((book) => {
           return (
             <div key={book._id} >
-              <Link to={`/books/${book._id}`}>
-                <h2>{book.local}</h2>
-              </Link>
+              <h3>{book.name}</h3>
             </div>
           );
         })}     

@@ -16,9 +16,8 @@ function AddBook(props) {
 
     const handleSubmit = async (e) => {
         e.preventDefault(); //prevent to reload the page
-        try {
-            console.log({ type, name, contact })
-            await axios.post(`${process.env.REACT_APP_API_URL}/service`, { type, name, price, contact }); 
+        try {            
+            await axios.post(`${process.env.REACT_APP_API_URL}/services`, { type, name, price, contact }); 
 
             setType("")
             setName("")
@@ -51,7 +50,7 @@ function AddBook(props) {
                 <label htmlFor="contact">Contact</label>
                 <input type="text" name='contact' value={contact} onChange={handleContact} />
 
-                <button type="submit">Book</button>
+                <button type="submit">Add Service</button>
 
             </form>
         </div>
