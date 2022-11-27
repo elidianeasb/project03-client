@@ -14,7 +14,7 @@ function ProfilePage() {
     try {
       const storedToken = localStorage.getItem('authToken');
 
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/books/${user._id}`, {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/books`, {
         headers: { Authorization: `Bearer ${storedToken}` }
       });
 
