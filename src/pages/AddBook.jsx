@@ -28,8 +28,6 @@ function AddBook(props) {
             setDate("") 
             setContact("") 
             setService("") 
-            
-            props.refreshBooks(); 
 
         } catch (error) {
             console.log(error)

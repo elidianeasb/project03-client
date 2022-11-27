@@ -30,7 +30,7 @@ function BookList() {
 return (
     <div>
       <h1>List of books:</h1>
-        {books.user.map((book) => {
+        {books.map((book) => {
           return (
             <div key={book._id} >
               <h3>{book.name}</h3>
