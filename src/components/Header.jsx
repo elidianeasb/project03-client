@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom";
 import { useContext } from 'react';
 import { AuthContext } from '../contexts/auth.context';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container'
+/* import { Link } from "react-router-dom";
 import logo from '../assets/logo.png'
-import Image from "react-bootstrap/Image";
+import Image from "react-bootstrap/Image"; */
 
 function Header() {
     const { loggedIn, user, logout, profile } = useContext(AuthContext);
@@ -14,7 +14,7 @@ function Header() {
       
         <Navbar bg="light" expand="lg">
             <Container>
-            <Nav.Link href="/"><Image src={logo} alt="logo" className="navbar-brand" style={{width: "200px"}}/></Nav.Link>
+            {/* <Nav.Link href="/"><Image src={logo} alt="logo" className="navbar-brand" style={{width: "200px"}}/></Nav.Link> */}
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
@@ -24,7 +24,7 @@ function Header() {
                 <Nav.Link href="/booking" className="navbar-brand" >Book</Nav.Link>
                     <Nav.Link href={`/`}>Home</Nav.Link>                    
                     <Nav.Link href={`/account`}>Account</Nav.Link>                    
-                    <Nav.Link href={"/books"}>My Appointments</Nav.Link>
+                    <Nav.Link href={"/bookings"}>My Appointments</Nav.Link>
                     <button onClick={logout}>Logout</button>
                 </>
             )}

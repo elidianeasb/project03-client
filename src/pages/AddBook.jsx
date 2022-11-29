@@ -23,7 +23,7 @@ function AddBook(props) {
             const storedToken = localStorage.getItem('authToken');
 
             
-            await axios.post(`${process.env.REACT_APP_API_URL}/books`, {local, date, service, contact}, {
+            await axios.post(`${process.env.REACT_APP_API_URL}/bookings`, {local, date, service, contact}, {
                 headers: {Authorization: `Bearer ${storedToken}`} 
             } );
             
@@ -54,10 +54,10 @@ function AddBook(props) {
             
             <Form.Label htmlFor="service">Service</Form.Label>
             <Form.Select value={service} onChange={handleService} >
-            <option value="63848c969d7a6aa319a6fed9">Relaxing Massage</option>
-            <option value="63848c969d7a6aa319a6fed9">Foot Massage</option>
-            <option value="63848c969d7a6aa319a6fed9">Stretch Massage</option>
-            <option value="63848c969d7a6aa319a6fed9">Chair Massage</option>
+            <option value="6383e80458fb22fbcc2290f7">Relaxing Massage</option>
+            <option value="6383e86858fb22fbcc2290f9">Foot Massage</option>
+            <option value="6383e8f658fb22fbcc2290fb">Stretch Massage</option>
+            <option value="6383e95858fb22fbcc2290fd">Chair Massage</option>
             </Form.Select>
             
             <Form.Label htmlFor="contact">Phone Number</Form.Label>

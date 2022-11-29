@@ -10,10 +10,10 @@ import Private from './components/Private';
 import Anon from './components/Anon';
 import ProfilePage from './pages/ProfilePage';
 import GiftCard from './pages/GiftCard';
-import Footer from './components/Footer';
 import AddBook from './pages/AddBook';
 import ServicesDescription from './pages/ServicesDescription';
 import GetStartedInstructions from './pages/GetStartedInstructions';
+import EditProfile from './pages/EditProfile';
 
 function App() {
   return (
@@ -25,12 +25,13 @@ function App() {
         <Route path="/giftcard" element={<GiftCard />} />
         <Route path="/booking" element={<AddBook />} />
         <Route path="/services" element={<ServicesDescription />} />
-        <Route path="/books" element={
+        <Route path="/bookings" element={
           <Private>
             <BookList />
           </Private>
         } />
         <Route path="/account" element={<ProfilePage />}></Route>
+        <Route path="/edit/:userId" element={<EditProfile />}></Route>
         <Route path="/service" element={
           <Private>
             <ServiceList />
