@@ -1,43 +1,60 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from 'react-router-dom';
+
+
 
 function BookList() {
 
-    const [books, setBooks] = useState([]);
+  const [books, setBooks] = useState([]);
 
-    const getAllBooks = async () => {      
-        try {
-            
-            const storedToken = localStorage.getItem('authToken');
+  const getAllBooks = async () => {
+    try {
 
-            const response = await axios.get(`${process.env.REACT_APP_API_URL}/books`, {
-                headers: {Authorization: `Bearer ${storedToken}`} 
-            });
+      const storedToken = localStorage.getItem('authToken');
 
-            setBooks(response.data);
-            console.log(response.data)
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/books`, {
+        headers: { Authorization: `Bearer ${storedToken}` }
+      });
 
-        } catch (error) {
-            console.log(error)
-        }
-    };
+      setBooks(response.data);
+      console.log(response.data)
+    } catch (error) {
+      console.log(error)
+    }
+  };
 
-    useEffect(() => {
-        getAllBooks();
-    }, [])
-    
-return (
+  useEffect(() => {
+    getAllBooks();
+  }, [])
+
+  const deleteBook = async (book) => {
+    console.log(book)
+    try {
+      const storedToken = localStorage.getItem('authToken');
+
+      await axios.delete(`${process.env.REACT_APP_API_URL}/books/${book._id}`, {
+        headers: { Authorization: `Bearer ${storedToken}` }
+      });
+      getAllBooks()
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  return (
     <div>
       <h1>List of books:</h1>
-        {books.map((book) => {
-          return (
-            <div key={book._id} >
-              <h3>{book.name}</h3>
-            </div>
-          );
-        })}     
-       
+      {books && books.map(book => (
+        <div key={book._id} >
+          <h3>{book.local}</h3>
+          <h3>{book.date}</h3>
+          <h3>{book.service.name}</h3>
+          <h3>{book.contact}</h3>
+          <button onClick={() => deleteBook(book)}>Cancel</button>
+        </div>
+      )
+      )}
+
     </div>
   )
 }

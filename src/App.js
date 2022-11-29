@@ -4,26 +4,28 @@ import HomePage from './pages/HomePage';
 import BookList from './pages/BookList';
 import ServiceList from './pages/ServiceList';
 import Signup from './pages/Signup';
-import LoginClient from './pages/LoginClient';
-import Navbar from './components/Navbar';
+import Login from './pages/Login';
+import Header from './components/Header';
 import Private from './components/Private';
 import Anon from './components/Anon';
 import ProfilePage from './pages/ProfilePage';
 import GiftCard from './pages/GiftCard';
 import Footer from './components/Footer';
 import AddBook from './pages/AddBook';
+import ServicesDescription from './pages/ServicesDescription';
 import GetStartedInstructions from './pages/GetStartedInstructions';
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/instructions" element={<GetStartedInstructions />} />
         <Route path="/giftcard" element={<GiftCard />} />
         <Route path="/booking" element={<AddBook />} />
-        <Route path="/book" element={
+        <Route path="/services" element={<ServicesDescription />} />
+        <Route path="/books" element={
           <Private>
             <BookList />
           </Private>
@@ -39,9 +41,8 @@ function App() {
             <Signup />
           </Anon>
         } />
-        <Route path='/login' element={<LoginClient />} />
+        <Route path='/login' element={<Login />} />
       </Routes>
-      <Footer />
     </div>
   );
 }

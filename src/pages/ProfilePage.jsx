@@ -1,7 +1,8 @@
 import { useContext } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useParams, useNavigate} from 'react-router-dom'
 import { AuthContext } from '../contexts/auth.context';
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
+
 import axios from "axios";
 
 
@@ -9,6 +10,7 @@ function ProfilePage() {
   const { user } = useContext(AuthContext);
   const [loadingUser, setLoadingUser] = useState(true)
   const [books, setBooks] = useState(null);
+
 
   const getAllBooks = async () => {
     try {
@@ -35,31 +37,16 @@ function ProfilePage() {
 
     <div>
       <h2>my account</h2>
-
       <div>
-
         {user && (
           <>
             <h4><b>email:</b> {user.email}</h4>
-
-
             <Link to={`/edit/${user._id}`}>
               <button>edit profile</button>
             </Link>
-            <h1>List of books:</h1>
-            {books && books.map(book => (
-                <div key={book._id} >
-                  <h3>{book.local}</h3>
-                  <h3>{book.date}</h3>
-                  <h3>{book.service.description}</h3>
-                </div>
-              )
-            )}
           </>
         )}
-
       </div>
-
     </div>
   )
 }

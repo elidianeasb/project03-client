@@ -1,11 +1,12 @@
 import React from 'react'
-import LandPage from './LandPage'
+import {Link} from 'react-router-dom'
+import Nav from 'react-bootstrap/nav'
 
 function HomePage() {
   return (
     <div>
-      <LandPage />
-        <h1>HomePage</h1>
+    <h6>Need pain relief now? Book your massage in just a few taps.</h6>
+    <Nav.Link to="/instructions" className='stdButton'><p>Get Started</p></Nav.Link>
     </div>
   )
 }
