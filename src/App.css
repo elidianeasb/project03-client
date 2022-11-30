@@ -2,87 +2,201 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html{
+  font-family: 'Trebuchet MS', sans-serif; 
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-
-
-@media only screen and (min-width: 768px) {
-  .homepage {
-    background-color: #fff;
-  }
-}
-
-.test{
-  background-color:aqua;
-
-}
-
-.stdButton{
-  width: 100px;  
+.stdButton {
+  width: 100px;
   background-color: #422F2F;
 }
 
-.stdButton p{
+.stdButton p {
   color: black
 }
 
-.form-control {
-  padding: 10px;
-  width: 70%;
-  height: 50%;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.01);
+.card:first-child {
   border: none;
-  border-radius: 0%;
-  border-bottom: 1px solid #80CED7;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-
-.form-control:focus {
-  box-shadow: none;
-  border-bottom: 2.5px solid #80CED7;
+@media only screen and (min-width: 700px) {
+  .card:first-child {
+    width: 40%;
+  }
 }
 
-.form-control::placeholder {
-  color: gray;
+.card .input-container {
+  position: relative;
+  margin: 0 60px 50px;
 }
 
-.form-control:focus::placeholder {
-  font-size: 10px;
-  color: #80CED7;
-  font-family: Arial, Helvetica, sans-serif;
+.card .input-container input {
+  outline: none;
+  z-index: 1;
+  position: relative;
+  background: none;
+  width: 100%;
+  height: 54px;
+  border: 0;
+  color: #212121;
+  font-size: 14px;
+  font-weight: 400;
 }
 
+.card .input-container input:focus~label {
+  color: #9d9d9d;
+  -webkit-transform: translate(-12%, -50%) scale(0.75);
+  transform: translate(-12%, -50%) scale(0.75);
+}
+
+.card .input-container input:valid~label {
+  color: #9d9d9d;
+  -webkit-transform: translate(-12%, -50%) scale(0.75);
+  transform: translate(-12%, -50%) scale(0.75);
+}
+
+.card .input-container label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #757575;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 60px;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+
+.card .input-container .bar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: #bababa;
+  width: 100%;
+  height: 1px;
+}
+
+.card .button-container button {
+  outline: 0;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  background: 0;
+  width: 50vw;
+  border: 2px solid #bababa;
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+  overflow: hidden;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+
+@media only screen and (min-width: 768px) {
+  .card .button-container button {
+    width: 20vw;
+  }
+}
+
+.card .button-container button span {
+  position: relative;
+  z-index: 1;
+  color: #bababa;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+
+.card .button-container button:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  margin: -15px 0 0 -15px;
+  opacity: 0;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+
+.card .button-container button:hover,
+.card .button-container button:active,
+.card .button-container button:focus {
+  background-color: #bababa;
+}
+
+.card .button-container button:hover span,
+.card .button-container button:active span,
+.card .button-container button:focus span {
+  color: white;
+}
+
+.card .footer {
+  margin: 40px 0 0;
+  color: #757575;
+  font-size: 14px;
+  font-weight: 300;
+  text-align: center;
+}
+
+.card .footer a {
+  color: inherit;
+  text-decoration: none;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+
+.card .footer a:hover {
+  color: #bababa;
+}
+
+article {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.startImg{
+  width: 60px;
+}
+
+.error {
+  color: #D64045;
+  font-size: 14px;
+  margin: 16px 0 0;
+  order: 2;
+  padding: 10px 16px;
+}
+.input{
+  font-size: 14px;
+}
+
+.instButton {
+  outline: 0;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  background: 0;
+  width: 50vw;
+  background-color: black;
+  border: 2px solid black;
+  margin-top: 20px;
+  color: white;
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;  
+  text-transform: uppercase;
+  overflow: hidden;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
 

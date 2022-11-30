@@ -43,14 +43,38 @@ function BookList() {
 
   return (
     <div>
-      <h1>List of bookings:</h1>
+      <h2 className="text-start pt-4">My Appointments</h2>
       {bookings && bookings.map(book => (
-        <div key={book._id} >
-          <h3>{book.local}</h3>
-          <h3>{book.date}</h3>
-          <h3>{book.service.name}</h3>
-          <h3>{book.contact}</h3>
-          <button onClick={() => deleteBook(book)}>Cancel</button>
+        <div key={book._id} className="container text-center">
+          <div className="row">
+          <div className="col text-center " >
+            <h6 className="fw-lighter pt-3"><b>Local</b></h6>
+            <p className="fw-lighter text-sm-start">{book.local}</p>
+          </div>
+          <div className="col">
+            <h6 className="fw-lighter pt-3"><b>Date</b></h6>
+            <p className="fw-lighter text-sm-start">{book.date}</p>
+          </div>
+          <div className="col">
+            <h6 className="fw-lighter pt-3"><b>Service</b></h6>
+            <p className="fw-lighter text-sm-start">{book.service.name}</p>
+          </div>
+          <div className="col">
+            <h6 className="fw-lighter pt-3"><b>Hour</b></h6>
+          </div>
+          <div className="col">
+            <h6 className="fw-lighter pt-3"><b>Contact</b></h6>
+            <p className="fw-lighter text-sm-start">{book.contact}</p> {/* how get phone from this book contact?? */}
+
+          </div>
+          <div className="col">
+            <h6 className="fw-lighter pt-3"><b>Status</b></h6>
+            <p className="fw-lighter text-sm-start">{book.status}</p>
+          </div>
+          <div className="col">
+            <button className="instButton" style={{width: "100px"}} onClick={() => deleteBook(book)}>Cancel</button>
+          </div>
+        </div>
         </div>
       )
       )}

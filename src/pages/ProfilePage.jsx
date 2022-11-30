@@ -29,21 +29,32 @@ function ProfilePage() {
 
   return (
 
-    <div>
-      <h2>my account</h2>
+    <div >
+      <h2 className="text-start pt-4">Account</h2>
+
+      <hr/>
 
       <div>
-
         {account && (
           <>
-            <h4><b>name:</b>{account.name}</h4>
+          <div className="text-start pt-4">
+            <h6 className="fw-lighter pt-3"><b>Full Name</b></h6>
+            <p className="fw-lighter text-sm-start" >{account.name}</p>
 
+            <h6 className="fw-lighter pt-3"><b>Email Address</b></h6>
+            <p className="fw-lighter text-sm-start">{account.email}</p>
+
+            <h6 className="fw-lighter pt-3"><b>Mobile phone number</b></h6>
+            <p className="fw-lighter text-sm-start">{account.phone}</p>
+
+          </div>
             <Link to={`/account/edit/${user._id}`}>
-              <button>edit profile</button>
+              <button className="instButton ms-auto me-auto">Edit Account</button>
             </Link>
+
           </>
         )}
-      <button onClick={logout}>Logout</button>
+      <button className="instButton ms-auto me-auto" onClick={logout}>Logout</button>
       </div>
     </div>
   )

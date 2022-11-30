@@ -9,12 +9,14 @@ function AddBook(props) {
     const [date, setDate] = useState("");
     const [service, setService] = useState("63848c969d7a6aa319a6fed9");
     const [contact, setContact] = useState("");
+    const [status, setStatus] = useState("pending");
 
 
     const handleLocal = (e) =>setLocal(e.target.value);    
     const handleDate = (e) => setDate(e.target.value);
     const handleContact = (e) => setContact(e.target.value);
     const handleService = (e) => setService(e.target.value);
+    const handleStatus = (e) => setStatus(e.target.value);
 
 
     const handleSubmit = async (e) => {
@@ -23,7 +25,7 @@ function AddBook(props) {
             const storedToken = localStorage.getItem('authToken');
 
             
-            await axios.post(`${process.env.REACT_APP_API_URL}/bookings`, {local, date, service, contact}, {
+            await axios.post(`${process.env.REACT_APP_API_URL}/bookings`, {local, date, service, contact, status}, {
                 headers: {Authorization: `Bearer ${storedToken}`} 
             } );
             
@@ -31,6 +33,7 @@ function AddBook(props) {
             setDate("") 
             setContact("") 
             setService("") 
+            setStatus("") 
 
         } catch (error) {
             console.log(error)

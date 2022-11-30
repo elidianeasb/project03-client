@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { AuthContext } from '../contexts/auth.context'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -41,19 +41,27 @@ function Login(props) {
 
   return (
 
-    <Card style={{ width: '20rem', marginTop: '100px', padding: '50px' }} className="mx-auto px-5">
-        <Form onSubmit={handleLoginSubmit}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email:</Form.Label>
-            <Form.Control type="email" name="email" value={email} onChange={handleEmail} />
-
-            <Form.Label>Password:</Form.Label>
-            <Form.Control type="password" name="password" value={password} onChange={handlePassword} />
-          </Form.Group>
-          <Button variant="secondary" type="submit" style={{backgroundColor: "#422F2F", marginTop: '20px'}}>Login</Button>
-          {errorMessage && <p>{errorMessage}</p>}
-        </Form>
-    </Card>
+    <div style={{paddingTop: "50px"}}>
+        <div className="card">
+          <form onSubmit={handleLoginSubmit}>
+            <div className="input-container">
+              <input className="input" required="required" type="email" name="email" value={email} onChange={handleEmail}/>
+              <label for="email">Email</label>
+              <div className="bar"></div>
+            </div>
+            <div className="input-container">
+              <input required="required" type="password" name="password" value={password} onChange={handlePassword}/>
+              <label for="Password">Password</label>
+              <div className="bar"></div>
+            </div>
+            <div className="button-container">
+              <button type="submit"><span>Login</span></button>
+            </div>
+            {errorMessage && <p className="error">{errorMessage}</p>}
+            <div className="footer">Don't have an account? <Link to='/signup'><u>Signup</u></Link></div>
+          </form>
+        </div>
+        </div>
 
   );
 }

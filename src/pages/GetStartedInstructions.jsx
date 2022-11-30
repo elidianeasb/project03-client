@@ -1,21 +1,36 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import img01 from '../assets/img01.png'
+import img02 from '../assets/img02.png'
+import img03 from '../assets/img03.png'
+
 
 function GetStartedInstructions() {
     return (
         <div>
-            <h1>Choose a wellness treatment.</h1>
-            <p>Pick your prefered massage technique and appointment duration.</p>
-            <h1>Select a place and time.</h1>
-            <p>Whetver you're at home or travelling, we came to you from 8am to 8pm</p>
+            <hr />
+            <article>
+            <img src={img01} alt="img01" className="startImg"/>                
+                <h5>Choose a wellness treatment.</h5>
+                <p>Pick your prefered massage technique and appointment duration.</p>
+            </article>
+            <article>
+            <img src={img02} alt="img02" className="startImg" />                
 
-            <h1>Select a place and time.</h1>
-            <p>wherever you prefer, at home or in our space</p>
+                <h5>Select a place and time.</h5>
+                <p>wherever you prefer, at home or in our space</p>
+            </article>
+            <article>
+            <img src={img03} alt="img03" className="startImg" />                
 
+                <h5>Relax, your're in good hands.</h5>
+                <p>We are licensed, insured, and vetted</p>
+            </article>
 
-            <h1>Relax, your're in good hands.</h1>
+            <hr />
+
             <Link to="/signup">
-                <button>Continue</button>
+                <button className="instButton">Continue</button>
             </Link>
 
         </div>
