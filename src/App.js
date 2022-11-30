@@ -30,8 +30,12 @@ function App() {
             <BookList />
           </Private>
         } />
-        <Route path="/account" element={<ProfilePage />}></Route>
-        <Route path="/edit/:userId" element={<EditProfile />}></Route>
+        <Route path="/account" element={
+          <Private>
+            <ProfilePage />
+          </Private>
+        } />
+        <Route path="/account/edit/:userId" element={<EditProfile />}></Route>
         <Route path="/service" element={
           <Private>
             <ServiceList />

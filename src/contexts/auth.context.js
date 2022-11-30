@@ -40,7 +40,6 @@ function AuthProviderWrapper(props){
                 setUser(null);
                 setLoading(false);   
                 setProfile(false);
-
         }
     };
 

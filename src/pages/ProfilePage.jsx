@@ -6,7 +6,7 @@ import { AuthContext } from '../contexts/auth.context';
 
 function ProfilePage() {
   const [account, setAccount] = useState(null);
-  const { user } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
   const storedToken = localStorage.getItem('authToken');
 
   const getAccount = async () => {
@@ -38,17 +38,15 @@ function ProfilePage() {
           <>
             <h4><b>name:</b>{account.name}</h4>
 
-            <Link to={`/edit/${user._id}`}>
+            <Link to={`/account/edit/${user._id}`}>
               <button>edit profile</button>
             </Link>
           </>
         )}
+      <button onClick={logout}>Logout</button>
       </div>
-
     </div>
   )
 }
 
 export default ProfilePage;
-/* 
-<button onClick={logout}>Logout</button> */
