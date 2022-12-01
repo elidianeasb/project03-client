@@ -15,7 +15,7 @@ const getStatus = () => {
   if (book.status === 'canceled'){
     return setStatusColor('red')
   }else if(book.status === 'accepted'){
-    return setStatusColor
+    return setStatusColor ('green')
   }
 }
 
