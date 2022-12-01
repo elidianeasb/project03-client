@@ -47,6 +47,9 @@ function ProfilePage() {
             <h6 className="fw-lighter pt-3"><b>Mobile phone number</b></h6>
             <p className="fw-lighter text-sm-start">{account.phone}</p>
 
+            <h6 className="fw-lighter pt-3"><b>Address</b></h6>
+            <p className="fw-lighter text-sm-start">{account.address}</p>
+
           </div>
             <Link style={{textDecoration: "none"}} to={`/account/edit/${user._id}`}>
               <button className="instButton ms-auto me-auto" >Edit Account</button>

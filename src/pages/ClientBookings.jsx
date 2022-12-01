@@ -4,6 +4,7 @@ import Booking from "../components/Booking";
 
 
 
+
 function ClientBookings() {
 
   const [bookings, setBookings] = useState([]);
@@ -42,16 +43,20 @@ function ClientBookings() {
     }
   }
   return (
-      <div>
-          <div className="list">
-              <h2 className="text-start pt-4">My Appointments</h2>
-              <hr />
-              {bookings && bookings.map(book => (
-                  <Booking book={book} cancelBook={cancelBook} showAccept={false}/>
-              )
-              )}
-          </div>
-      </div>
+      <div className="list">
+        <h4 className="text-start pt-4">My Appointments</h4>
+        <hr />
+        <div className="d-flex justify-content-between" >
+          <h6><b>Service</b></h6>
+          <h6><b>Date</b></h6>
+          <h6><b>Hour</b></h6>
+          <h6><b>Status</b></h6>
+        </div>
+      {bookings && bookings.map(book => (
+        <Booking book={book} cancelBook={cancelBook} showAccept={false} />
+      )
+      )}
+    </div >
   )
 }
 export default ClientBookings;

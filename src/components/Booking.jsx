@@ -1,49 +1,34 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
 import Card from 'react-bootstrap/Card'
+import { Link } from 'react-router-dom'
+import moment from 'moment'
 
 function Booking(props) {
   const { book, cancelBook, acceptBook, showAccept } = props
 
   const canAccept = book.status === 'pending'
-
   const canCancel = book.status !== 'canceled'
 
+  console.log(book.user)
 
   return (
-    <Card>
-      <div key={book._id} className="container text-center">
-        <div className="row">
-          <div className="col text-center " >
-            <h6 className="fw-lighter pt-3"><b>Local</b></h6>
-            <p className="fw-lighter text-sm-start">{book.local}</p>
-          </div>
-          <div className="col">
-            <h6 className="fw-lighter pt-3"><b>Date</b></h6>
-            <p className="fw-lighter text-sm-start">{book.date}</p>
-          </div>
-          <div className="col">
-            <h6 className="fw-lighter pt-3"><b>Service</b></h6>
+    <div>
+      <div key={book._id} className="d-flex justify-content-between">
             <p className="fw-lighter text-sm-start">{book.service.name}</p>
-          </div>
-          <div className="col">
-            <h6 className="fw-lighter pt-3"><b>Hour</b></h6>
-          </div>
-          <div className="col">
-            <h6 className="fw-lighter pt-3"><b>Status</b></h6>
-            <p className="fw-lighter text-sm-start">{book.status}</p>
-          </div>
-          <div className="col">
-            {canCancel && (
-              <button className="instButton" style={{ width: "150px" }} onClick={() => cancelBook(book)}>Cancel</button>
-            )}
-            {showAccept && canAccept && (
-              <button className="instButton" style={{ width: "150px" }} onClick={() => acceptBook(book)}>Accept</button>
-            )}
-          </div>
-        </div>
+            <p className="fw-lighter text-sm-start">{moment(book.date).format('L')}</p>
+            <p className="fw-lighter text-sm-start">{book.hour}</p>
+            <p className="fw-lighter text-sm-start">{(book.status)}</p>
+            <p className="fw-lighter text-sm-start">{(book.user)}</p>
       </div>
-    </Card>
+      <div className='d-flex justify-content-end'>
+        {canCancel && (
+          <button className="statusButton" style={{ width: "12vw"}} onClick={() => cancelBook(book)}>Cancel</button>
+        )}
+        {showAccept && canAccept && (
+          <button className="statusButtonAccept" style={{ width: "150px" }} onClick={() => acceptBook(book)}>Accept</button>
+        )}
+      </div>
+      <hr />
+    </div>
   )
 }
 

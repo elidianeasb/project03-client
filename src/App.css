@@ -8,14 +8,6 @@ html {
   margin-right: 10px;
 }
 
-.stdButton {
-  width: 100px;
-  background-color: #422F2F;
-}
-
-.stdButton p {
-  color: black
-}
 
 .card:first-child {
   border: none;
@@ -223,3 +215,26 @@ article {
     font-size: 10px;
   }
 }
+
+.statusButton {
+  cursor: pointer;
+  border: none;
+  padding: 1vw 0;
+  color: gray;
+  font-size: 11px;
+  text-transform: uppercase;
+  margin-left: 10px;
+}
+
+.statusButtonAccept {
+  cursor: pointer;
+  border: none;
+  padding: 1vw 0;
+  color: white;
+  font-size: 11px;
+  text-transform: uppercase;
+  margin-left: 10px;
+  background-color: green;
+  width: 20px;
+}
+
