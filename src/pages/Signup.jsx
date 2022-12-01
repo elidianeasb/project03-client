@@ -12,6 +12,7 @@ function Signup(props) {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
@@ -19,11 +20,12 @@ function Signup(props) {
   const handlePassword = (e) => setPassword(e.target.value);
   const handleEmail = (e) => setEmail(e.target.value);
   const handleName = (e) => setName(e.target.value);
+  const handlePhone = (e) => setPhone(e.target.value);
 
   const handleSignupSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${process.env.REACT_APP_API_URL}/signup`, { email, password, name });
+      await axios.post(`${process.env.REACT_APP_API_URL}/signup`, { email, password, name, phone });
       //redirect
       navigate('/login');
 
@@ -52,8 +54,13 @@ function Signup(props) {
               <label for="Password">Password</label>
               <div className="bar"></div>
             </div>
+            <div className="input-container">
+              <input required="required" type="phone" name="password" value={phone} onChange={handlePhone}/>
+              <label for="Password">Phone</label>
+              <div className="bar"></div>
+            </div>
             <div className="button-container">
-              <button type="submit"><span>Go</span></button>
+              <button type="submit"><span>Signup</span></button>
             </div>
             <div className="footer">Already have account? <Link to='/login'><u>Sign In</u></Link></div>
             {errorMessage && <p>{errorMessage}</p>}

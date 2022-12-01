@@ -7,38 +7,46 @@ import Container from 'react-bootstrap/Container'
 import logo from '../assets/logo.png'
 import Image from "react-bootstrap/Image"; */
 
+function bookingsRoute(user) {
+    console.log(user)
+    if (user.accountType === "admin") {
+        return "/admin/bookings"
+    }
+    return "/bookings"
+}
+
 function Header() {
     const { loggedIn, user, logout, profile } = useContext(AuthContext);
 
     return (
-      
+
         <Navbar bg="light" expand="lg">
             <Container>
-            {/* <Nav.Link href="/"><Image src={logo} alt="logo" className="navbar-brand" style={{width: "200px"}}/></Nav.Link> */}
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-            {/* If user is loggdIn shows the projects */}
-            {loggedIn && (
-                <>
-                <Nav.Link href="/booking" className="navbar-brand" >Book</Nav.Link>
-                    <Nav.Link href={`/`}>Home</Nav.Link>                    
-                    <Nav.Link href={`/account`}>Account</Nav.Link>                    
-                    <Nav.Link href={"/bookings"}>My Appointments</Nav.Link>
-                    <button onClick={logout}>Logout</button>
-                </>
-            )}
+                {/* <Nav.Link href="/"><Image src={logo} alt="logo" className="navbar-brand" style={{width: "200px"}}/></Nav.Link> */}
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="me-auto">
+                        {/* If user is loggdIn shows the projects */}
+                        {loggedIn && (
+                            <>
+                                <Nav.Link href="/booking" className="navbar-brand" >Book</Nav.Link>
+                                <Nav.Link href={`/`}>Home</Nav.Link>
+                                <Nav.Link href={`/account`}>Account</Nav.Link>
+                                <Nav.Link href={bookingsRoute(user)}>My Appointments</Nav.Link>
+                                <button onClick={logout}>Logout</button>
+                            </>
+                        )}
 
-            {!loggedIn && (
-                <>
-                    <Nav.Link href={`/`}>Home</Nav.Link>
-                    <Nav.Link href="/services">Services</Nav.Link>
-                    <Nav.Link href="/instructions">Get Started</Nav.Link>
-                    <Nav.Link href="/login">Sign In</Nav.Link>
-                </>
-            )}
-            </Nav>
-            </Navbar.Collapse>
+                        {!loggedIn && (
+                            <>
+                                <Nav.Link href={`/`}>Home</Nav.Link>
+                                <Nav.Link href="/services">Services</Nav.Link>
+                                <Nav.Link href="/instructions">Get Started</Nav.Link>
+                                <Nav.Link href="/login">Sign In</Nav.Link>
+                            </>
+                        )}
+                    </Nav>
+                </Navbar.Collapse>
             </Container>
         </Navbar>
     );

@@ -30,11 +30,11 @@ function ProfilePage() {
   return (
 
     <div >
+
+
+      <div className='list'>
       <h2 className="text-start pt-4">Account</h2>
-
       <hr/>
-
-      <div>
         {account && (
           <>
           <div className="text-start pt-4">
@@ -48,10 +48,9 @@ function ProfilePage() {
             <p className="fw-lighter text-sm-start">{account.phone}</p>
 
           </div>
-            <Link to={`/account/edit/${user._id}`}>
-              <button className="instButton ms-auto me-auto">Edit Account</button>
+            <Link style={{textDecoration: "none"}} to={`/account/edit/${user._id}`}>
+              <button className="instButton ms-auto me-auto" >Edit Account</button>
             </Link>
-
           </>
         )}
       <button className="instButton ms-auto me-auto" onClick={logout}>Logout</button>

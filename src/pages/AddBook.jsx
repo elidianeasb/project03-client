@@ -3,8 +3,11 @@ import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
+import { useParams, useNavigate } from 'react-router-dom';
+
 
 function AddBook(props) {
+    const navigate = useNavigate();
     const [local, setLocal] = useState("home");
     const [date, setDate] = useState("");
     const [service, setService] = useState("63848c969d7a6aa319a6fed9");
@@ -17,6 +20,7 @@ function AddBook(props) {
     const handleContact = (e) => setContact(e.target.value);
     const handleService = (e) => setService(e.target.value);
     const handleStatus = (e) => setStatus(e.target.value);
+
 
 
     const handleSubmit = async (e) => {
@@ -34,6 +38,9 @@ function AddBook(props) {
             setContact("") 
             setService("") 
             setStatus("") 
+
+            navigate(`/bookings`); //refresh the list
+            
 
         } catch (error) {
             console.log(error)
@@ -62,9 +69,6 @@ function AddBook(props) {
             <option value="6383e8f658fb22fbcc2290fb">Stretch Massage</option>
             <option value="6383e95858fb22fbcc2290fd">Chair Massage</option>
             </Form.Select>
-            
-            <Form.Label htmlFor="contact">Phone Number</Form.Label>
-            <Form.Control type="number" name='contact' value={contact} onChange={handleContact} placeholder="e.g. 9999-9999 " />
 
             <Button variant="secondary" type="submit">Book</Button>            
         </Form>

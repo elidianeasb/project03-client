@@ -1,7 +1,7 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom'
 import HomePage from './pages/HomePage';
-import BookList from './pages/BookList';
+import ClientBookings from './pages/ClientBookings';
 import ServiceList from './pages/ServiceList';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
@@ -14,6 +14,8 @@ import AddBook from './pages/AddBook';
 import ServicesDescription from './pages/ServicesDescription';
 import GetStartedInstructions from './pages/GetStartedInstructions';
 import EditProfile from './pages/EditProfile';
+import AdminBookings from './pages/AdminBookings';
+import Admin from './components/Admin';
 
 function App() {
   return (
@@ -23,12 +25,23 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/instructions" element={<GetStartedInstructions />} />
         <Route path="/giftcard" element={<GiftCard />} />
-        <Route path="/booking" element={<AddBook />} />
         <Route path="/services" element={<ServicesDescription />} />
+        <Route path="/booking" element={
+          <Private>
+            <AddBook />
+          </Private>
+        } />
         <Route path="/bookings" element={
           <Private>
-            <BookList />
+            <ClientBookings />
           </Private>
+        } />
+        <Route path="/admin/bookings" element={
+          <Admin>
+            <Private>
+              <AdminBookings />
+            </Private>
+          </Admin>
         } />
         <Route path="/account" element={
           <Private>
