@@ -1,9 +1,8 @@
 import { useContext } from 'react';
 import { AuthContext } from '../contexts/auth.context';
-import {Nav} from 'react-bootstrap';
+import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container'
-import { Link } from "react-router-dom";
 import logo from '../assets/logo.png'
 import Image from "react-bootstrap/Image";
 
