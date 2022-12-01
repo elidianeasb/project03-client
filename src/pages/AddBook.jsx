@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 import { useParams, useNavigate } from 'react-router-dom';
-import {cssTransition, toast} from 'react-toastify'
+import { toast} from 'react-toastify'
 import { Slide, Zoom, Flip, Bounce } from 'react-toastify';
 
 
