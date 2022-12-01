@@ -46,14 +46,6 @@ function AddBook(props) {
         }
     }
 
-/* const addBook = () => {
-    setLoading(true);
-    setTimeout(() => {
-      notify()
-      setLoading(false);
-      navigate("/");
-    }, 3000);
-  };
 
     const notify = () => {
         toast.warn('Booking Sucessful', {
@@ -61,7 +53,7 @@ function AddBook(props) {
           icon: '✅',
           transition: Zoom,
         })
-      } */
+      }
 
 
   return (
@@ -90,7 +82,7 @@ function AddBook(props) {
             <option value="16:00">16:00</option>
             <option value="17:00">17:00</option>
             </Form.Select>
-            <Button variant="secondary" type="submit" /* onClick={() => addBook()} */>Book</Button>            
+            <Button variant="secondary" type="submit"  onClick={() => notify()}>Book</Button>            
         </Form>
     </Card>
   )
