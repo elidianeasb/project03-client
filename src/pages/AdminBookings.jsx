@@ -57,7 +57,7 @@ function AdminBookings(props) {
   return (
     <div>
       <div className="list">
-        <h2 className="text-start pt-4">My Appointments</h2>
+        <h4 className="text-start pt-4">My Appointments</h4>
         <hr />
         <div className="d-flex justify-content-between" >
           <h6><b>Service</b></h6>
@@ -68,8 +68,8 @@ function AdminBookings(props) {
         </div>
         {bookings && bookings.map(book => (
           <div>
-            <p className="fw-lighter text-sm-start">{(book.user.name)}</p>
             <Booking book={book} cancelBook={cancelBook} acceptBook={acceptBook} showAccept={true} />
+            <p className="fw-lighter text-sm-start">Client: {(book.user.name)}</p>
           </div>
         )
         )}

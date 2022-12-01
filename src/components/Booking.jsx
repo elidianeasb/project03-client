@@ -12,10 +12,10 @@ function Booking(props) {
 const [statusColor, setStatusColor] = useState('')
 
 const getStatus = () => {
-  if (book.status == 'canceled'){
+  if (book.status === 'canceled'){
     return setStatusColor('red')
-  }else if(book.status == 'accepted'){
-    return setStatusColor('green')
+  }else if(book.status === 'accepted'){
+    return setStatusColor
   }
 }
 
@@ -32,14 +32,14 @@ useEffect(() => {
             <p className="fw-lighter text-sm-start">{book.service.name}</p>
             <p className="fw-lighter text-sm-start">{moment(book.date).format('L')}</p>
             <p className="fw-lighter text-sm-start">{book.hour}</p>
-            <p className="fw-lighter text-sm-start" style={{'color': `${statusColor}`}}>{(book.status)}</p>
+            <p className="fw-lighter text-sm-start" style={{color: `${statusColor}`}}>{(book.status)}</p>
       </div>
       <div className='d-flex justify-content-end'>
         {canCancel && (
           <button className="statusButton" style={{ width: "12vw"}} onClick={() => cancelBook(book)}>Cancel</button>
         )}
         {showAccept && canAccept && (
-          <button className="statusButtonAccept" style={{ width: "150px" }} onClick={() => acceptBook(book)}>Accept</button>
+          <button className="statusButtonAccept" style={{ width: "12vw"}} onClick={() => acceptBook(book)}>Accept</button>
         )}
       </div>
       <hr />
