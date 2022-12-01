@@ -26,7 +26,7 @@ function App() {
         <Route path="/instructions" element={<GetStartedInstructions />} />
         <Route path="/giftcard" element={<GiftCard />} />
         <Route path="/services" element={<ServicesDescription />} />
-        <Route path="/booking" element={
+        <Route path="/book" element={
           <Private>
             <AddBook />
           </Private>
