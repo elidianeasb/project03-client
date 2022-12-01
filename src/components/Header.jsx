@@ -1,11 +1,11 @@
 import { useContext } from 'react';
 import { AuthContext } from '../contexts/auth.context';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import Container from 'react-bootstrap/Container'
+import Nav from 'react-bootstrap/Nav88';
+import Navbar from 'react-bootstrap/Navbar88';
+import Container from 'react-bootstrap/Container88'
 import { Link } from "react-router-dom";
 import logo from '../assets/logo.png'
-import Image from "react-bootstrap/Image";
+import Image from "react-bootstrap/Image88";
 
 function bookingsRoute(user) {
     console.log(user)
