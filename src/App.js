@@ -16,10 +16,13 @@ import GetStartedInstructions from './pages/GetStartedInstructions';
 import EditProfile from './pages/EditProfile';
 import AdminBookings from './pages/AdminBookings';
 import Admin from './components/Admin';
+import {ToastContainer} from 'react-toastify'
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
     <div className="App">
+      <ToastContainer />
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />

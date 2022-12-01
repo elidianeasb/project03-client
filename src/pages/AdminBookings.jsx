@@ -59,8 +59,18 @@ function AdminBookings(props) {
       <div className="list">
         <h2 className="text-start pt-4">My Appointments</h2>
         <hr />
+        <div className="d-flex justify-content-between" >
+          <h6><b>Service</b></h6>
+          <h6><b>Date</b></h6>
+          <h6><b>Hour</b></h6>
+          <h6><b>Status</b></h6>
+          <h6><b>Client</b></h6>
+        </div>
         {bookings && bookings.map(book => (
+          <div>
+            <p className="fw-lighter text-sm-start">{(book.user.name)}</p>
             <Booking book={book} cancelBook={cancelBook} acceptBook={acceptBook} showAccept={true} />
+          </div>
         )
         )}
       </div>
