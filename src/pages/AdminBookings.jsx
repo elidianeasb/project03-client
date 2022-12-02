@@ -9,9 +9,7 @@ function AdminBookings(props) {
 
   const getAllBookings = async () => {
     try {
-
       const storedToken = localStorage.getItem('authToken');
-
       const response = await axios.get(`${process.env.REACT_APP_API_URL}/bookings`, {
         headers: { Authorization: `Bearer ${storedToken}` }
       });
@@ -31,7 +29,6 @@ function AdminBookings(props) {
     console.log(book)
     try {
       const storedToken = localStorage.getItem('authToken');
-
       await axios.delete(`${process.env.REACT_APP_API_URL}/bookings/${book._id}`, {
         headers: { Authorization: `Bearer ${storedToken}` }
       });
@@ -56,7 +53,7 @@ function AdminBookings(props) {
   }
   return (
     <div>
-      <div className="list">
+      <div className="list ms-4 me-4 pt-5 pb-4 mt-5">
         <h4 className="text-start pt-4">My Appointments</h4>
         <hr />
         <div className="d-flex justify-content-between" >
@@ -68,8 +65,9 @@ function AdminBookings(props) {
         </div>
         {bookings && bookings.map(book => (
           <div>
+            <p className="fw-lighter text-start">Client: {(book.user.name)}</p>
             <Booking book={book} cancelBook={cancelBook} acceptBook={acceptBook} showAccept={true} />
-            <p className="fw-lighter text-sm-start">Client: {(book.user.name)}</p>
+            <hr />
           </div>
         )
         )}

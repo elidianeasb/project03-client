@@ -2,9 +2,6 @@ import { useState, useContext } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import { AuthContext } from '../contexts/auth.context'
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import Card from 'react-bootstrap/Card';
 
 
 function Login(props) {
@@ -24,14 +21,11 @@ function Login(props) {
     try {
       const response = await axios.post(`${process.env.REACT_APP_API_URL}/login`, { email, password });
 
-      //Store the token that we get from the login request
       storeToken(response.data.authToken);
 
-      //Validade the token
       authenticateUser();
 
-      //redirect
-      navigate('/');
+      navigate('/instructions');
 
     } catch (error) {
       const errorDescription = error.response.data.errorMessage;
@@ -41,27 +35,27 @@ function Login(props) {
 
   return (
 
-    <div style={{paddingTop: "50px"}}>
-        <div className="card">
-          <form onSubmit={handleLoginSubmit}>
-            <div className="input-container">
-              <input className="input" required="required" type="email" name="email" value={email} onChange={handleEmail}/>
-              <label for="email">Email</label>
-              <div className="bar"></div>
-            </div>
-            <div className="input-container">
-              <input required="required" type="password" name="password" value={password} onChange={handlePassword}/>
-              <label for="Password">Password</label>
-              <div className="bar"></div>
-            </div>
-            <div className="button-container">
-              <button type="submit"><span>Login</span></button>
-            </div>
-            {errorMessage && <p className="error">{errorMessage}</p>}
-            <div className="footer">Don't have an account? <Link to='/signup'><u>Signup</u></Link></div>
-          </form>
-        </div>
-        </div>
+    <div style={{ paddingTop: "150px" }}>
+      <div className="card">
+        <form onSubmit={handleLoginSubmit}>
+          <div className="input-container">
+            <input className="input" required="required" type="email" name="email" value={email} onChange={handleEmail} />
+            <label for="email">Email</label>
+            <div className="bar"></div>
+          </div>
+          <div className="input-container">
+            <input required="required" type="password" name="password" value={password} onChange={handlePassword} />
+            <label for="Password">Password</label>
+            <div className="bar"></div>
+          </div>
+          <div className="button-container">
+            <button type="submit"><span>Login</span></button>
+          </div>
+          {errorMessage && <p className="error">{errorMessage}</p>}
+          <div className="footer">Don't have an account? <Link to='/signup'><u>Signup</u></Link></div>
+        </form>
+      </div>
+    </div>
 
   );
 }
