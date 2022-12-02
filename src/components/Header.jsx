@@ -3,11 +3,9 @@ import { AuthContext } from '../contexts/auth.context';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container'
-import logo from '../assets/logo.png'
 import Image from "react-bootstrap/Image";
 
 function bookingsRoute(user) {
-    console.log(user)
     if (user.accountType === "admin") {
         return "/admin/bookings"
     }
@@ -15,13 +13,12 @@ function bookingsRoute(user) {
 }
 
 function Header() {
-    const { loggedIn, user, logout, profile } = useContext(AuthContext);
+    const { loggedIn, user, logout } = useContext(AuthContext);
 
     return (
 
-        <Navbar bg="light" expand="lg" >
-            <Container >
-                <Nav.Link href="/"><Image src={logo} alt="logo" className="navbar-brand" style={{width: "200px"}}/></Nav.Link>
+        <Navbar bg="light" expand="lg" className='fixed-top'>
+            <Container className='p-3 mb-2 bg-light text-dark '>                
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav>

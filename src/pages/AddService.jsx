@@ -31,8 +31,6 @@ function AddBook(props) {
         }
     }
 
-
-
     return (
         <div>
             <form onSubmit={handleSubmit}>

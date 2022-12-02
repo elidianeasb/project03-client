@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 
@@ -54,37 +54,36 @@ function EditProfile() {
 
       navigate(`/account`); //refresh the list
 
-
     } catch (error) {
       console.log(error)
     }
   }
 
   return (
-      <form onSubmit={handleSubmit}>
-        <div className="input-group-sm mb-3">
-          <h6 className="fw-lighter pt-3">Name</h6>
-          <input className="form-control" type="text" name='name' value={name} onChange={handleName} />
-        </div>
-        
-        <div className="input-group-sm mb-3">
+    <form onSubmit={handleSubmit} className="ms-4 me-4">
+      <div className="input-group-sm mb-3" style={{marginTop:"100px"}}>
+        <h6 className="fw-lighter pt-3">Name</h6>
+        <input className="form-control" type="text" name='name' value={name} onChange={handleName} />
+      </div>
+
+      <div className="input-group-sm mb-3">
         <h6 className="fw-lighter pt-3">Email</h6>
         <input className="form-control fw-lighter" type="text" name='email' value={email} onChange={handleEmail} />
-        </div>
+      </div>
 
-        <div className="input-group-sm mb-3">
+      <div className="input-group-sm mb-3">
         <h6 className="fw-lighter pt-3">Phone</h6>
         <input className="form-control fw-lighter" type="text" name='phone' value={phone} onChange={handlePhone} />
-        </div>
+      </div>
 
-        <div className="input-group-sm mb-3">
+      <div className="input-group-sm mb-3">
         <h6 className="fw-lighter pt-3">Address</h6>
         <input className="form-control fw-lighter" type="text" name='address' value={address} onChange={handleAddress} />
-        </div>
+      </div>
 
 
-        <button className="instButton ms-auto me-auto" type="submit">Edit Account</button>
-      </form>
+      <button className="instButton ms-auto me-auto mt-5" type="submit">Edit Account</button>
+    </form>
   )
 }
 

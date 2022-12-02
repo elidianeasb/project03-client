@@ -36,7 +36,7 @@ function Signup(props) {
   };
 
   return (
-      <div style={{paddingTop: "50px"}}>
+      <div style={{paddingTop: "150px"}}>
         <div className="card">
           <form onSubmit={handleSignupSubmit}>
             <div className="input-container">
